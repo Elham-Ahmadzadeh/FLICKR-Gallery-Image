@@ -1,2 +1,2 @@
 # FLICKR-Gallery-Image
-a responive gallery image
+a responive mobile first Gallery Image 
