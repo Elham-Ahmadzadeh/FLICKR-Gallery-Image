@@ -5,7 +5,7 @@
   //  ImageLinks for slide show
 
 let imageLink = [],
- time = 5000, /* slide changes every 5 seconds */
+ time = 5000, //slide changes every 5 seconds 
 
     i = 0;
 
