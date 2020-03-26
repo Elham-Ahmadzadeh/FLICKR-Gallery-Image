@@ -10,7 +10,7 @@ let imageLink = [],
     i = 0;
 
    
-/* 6 slide shows images from unsplash.com */
+// 6 slides show images from unsplash.com 
     
     imageLink [0] =
       "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
