@@ -1,0 +1,269 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;;
+}
+
+body, html {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'pacifico', cursive;
+    font-size: 20px;
+    background: #000;
+}
+/* lightbox */
+#lightbox {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.942);
+ display: none;
+}
+
+#lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightboximage {
+  border: 2px solid rgb(70, 68, 68);
+}
+
+
+
+/* designing the photos that we searched */
+#photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row: auto;
+    grid-gap: 2rem;
+    margin-left: 6px; 
+    
+}
+section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* DESIGNING image */
+img {
+  border-radius: 5px;
+  margin-left: 6px;
+  border: 1px solid white;
+}
+
+elem {
+display: flex;
+justify-content: center;
+}
+/* designing the heading */
+
+#content {
+    width: 100%;
+    background-image: none;
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+#content.on {
+    -webkit-animation-name: in-out;
+    animation-name: in-out;
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+
+/* styling the input button */
+  input {
+    margin-top: 12px;
+     box-sizing: border-box;
+    width: 20px;
+    height: 22px;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    background: none transparent; 
+    color: rgba(245, 237, 237, 0.281);
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Roboto;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out,
+      padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out,
+      padding 0.2s;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+
+  /* designing Go button */
+
+  .search2 {
+    color: white;
+    background: rgba(179, 252, 34, 0.733);
+    padding: 13px 11px;
+    margin-left: 6px;
+    border-radius: 4px;
+    border: 5px white solid;
+}
+  
+/* search button before opening */
+  .search {
+    background: none;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    height: 30px;
+    width: 27px;
+    padding: 0;
+    border-radius: 100%;
+    outline: 0;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+  
+  .search:before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 4px;
+    background-color: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-top: 26px;
+    margin-left: 17px;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+  }
+  
+  /* close search button */
+  .close {
+    margin-top: 27px;
+    margin-right: -24px;
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+  }
+  
+  .close:before {
+     
+    content: "";
+    position: absolute;
+    width: 27px;
+    height: 4px;
+    margin-top: -1px;
+    margin-left: -13px;
+    background-color: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .close:after {
+    content: "";
+    position: absolute;
+    width: 27px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.884);
+    margin-top: -1px;
+    margin-left: -13px;
+    cursor: pointer;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+/* seach input  */
+  .square {
+    margin-right: -24px;
+    box-sizing: border-box;
+    padding: 0 40px 0 10px;
+    width: 100%;
+    height: 45px;
+    border: 4px solid #ffffff;
+    border-radius: 0;
+    background: rgba(228, 228, 209, 0.945);
+    color: #000;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out,
+      padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out,
+      padding 0.2s;
+    -webkit-transition-delay: 0.4s, 0s, 0.4s;
+    transition-delay: 0.4s, 0s, 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-24%, -19%);
+  }  
+.mainText1 {
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 40px;
+}
+
+
+.image {
+    max-width: 100%;
+    max-height: 100%;
+  
+}
+
+
+
+/* designing for desktop */
+
+@media (min-width: 800px)
+{
+    .image {
+        width: 200%;
+    }
+    .square {
+        width: 50%;
+        background: rgba(228, 228, 209, 0.452);
+    }
+    #photos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-row: auto;
+    gap: 1rem;
+    margin-left: 6px;  
+}
+.mainText1 {
+    font-size: 30px;
+}
+
+    }
+
+
+
+
+
+
