@@ -10,7 +10,7 @@ let imageLink = [],
     i = 0;
 
    
-// 6 slides show images from unsplash.com 
+/* 6 slide shows images from unsplash.com */
     
     imageLink [0] =
       "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
@@ -81,15 +81,15 @@ let imageLink = [],
 
 /* AT THE BEGINING OF THE FLICKR */
 
-searchKey.addEventListener('click',async () => {
+searchKey.addEventListener('click',async () => {  ///firing the go button 
 
- let text = document.querySelector('#search-input').value;
+ let text = document.querySelector('#search-input').value;   //search input
 
 //get images
  let data = await getImages(text);
 
  //upadeUI
- updateUI(data)
+ updateUi(data)
 
 
 })
@@ -106,7 +106,7 @@ async function getImages(text){
 
   const method = 'flickr.photos.search';
 
-  let max = 40; /* max 40 images on one page */
+  let max = 40; /* max 40 images on one page  if you want to add number of images you can add in url */ 
 
   let url =`${baseUrl}?api_key=${apiKey}&per_page=${max}&method=${method}&text=${text}&format=json&nojsoncallback=1`;
 
@@ -119,9 +119,9 @@ async function getImages(text){
 }
 
 //update UI
-function updateUI(data) {
+function updateUi(data) {
   //clear photos
-  document.querySelector('#photos').innerHTML = '';
+  document.querySelector('#photos').innerHTML = ''; //not to makes it empty everytime
 
   data.photo.forEach(img => {
 
@@ -130,6 +130,7 @@ function updateUI(data) {
    elem.setAttribute('src',  imgUrl(img, 'q'));
 
    elem.addEventListener('click', () => {
+
     enlarge(img);
 
    });
@@ -143,18 +144,21 @@ function updateUI(data) {
 
  images.forEach(image => {
 
+
    image.addEventListener('click', e => {
 
      lightBox.classList.add('active')
 
      const img = document.createElement('img')
 
-     img.setAttribute('src', img, 'z')
+     img.src = image.src  //it is important to write scr
 
      lightBox.appendChild(img)
 
-   });
+    });
+
  });
+
 }
 
 
@@ -169,7 +173,7 @@ function enLarge(img) {
 
 
 
-//construnct image 
+//construct image 
 
 function imgUrl(img, size) {
 
@@ -177,6 +181,7 @@ function imgUrl(img, size) {
 
 }
 
+///creating article with lightbox ID
 
 const lightBox = document.createElement('article')
 
@@ -187,6 +192,11 @@ document.body.appendChild(lightBox);
   
 
 
+const lightbox = document.createElement('article');
+
+lightbox.id = 'lightbox';
+
+document.body.appendChild(lightbox);
 
 
     
