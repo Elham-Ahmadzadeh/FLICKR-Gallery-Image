@@ -126,12 +126,13 @@ function updateUi(data) {
   data.photo.forEach(img => {
 
    let elem = document.createElement('img');
+   elem.id = 'searchImages';
 
    elem.setAttribute('src',  imgUrl(img, 'q'));
-
+  
    elem.addEventListener('click', () => {
-
-    enlarge(img);
+    img.src = enLarge(img);
+   
 
    });
 
@@ -141,26 +142,30 @@ function updateUi(data) {
 
  const images = document.querySelectorAll('img');
 
-
  images.forEach(image => {
 
 
    image.addEventListener('click', e => {
-
-     lightBox.classList.add('active')
-
-     const img = document.createElement('img')
+    const lightbox = document.querySelectorAll('#article');
+    const img = document.createElement('img')
+   
 
      img.src = image.src  //it is important to write scr
+    while (lightbox.firstChild) {
 
-     lightBox.appendChild(img)
+      lightbox.removeChild(lightbox.firstChild)
+
+    }
+
+    
+    showOriginalImage(lightbox);
+    
 
     });
 
  });
 
 }
-
 
 
 //ELARGE  O MEANS ORIGINAL SIZE
@@ -183,20 +188,19 @@ function imgUrl(img, size) {
 
 ///creating article with lightbox ID
 
-const lightBox = document.createElement('article')
-
-lightBox.id = 'lightBox';
-
-document.body.appendChild(lightBox);  
-    
-  
-
-
 const lightbox = document.createElement('article');
 
+function showOriginalImage(lightbox) {
 lightbox.id = 'lightbox';
-
 document.body.appendChild(lightbox);
+lightBox.classList.add('active');
+lightBox.appendChild(img)
+//remove lightbox
+lightbox.addEventListener('click', event => {
+        if (event.target !== event.currentTarget) return; 
+        lightbox.remove('active');    
+    });
+}  
 
 
     

@@ -52,7 +52,7 @@ section {
 }
 
 /* DESIGNING image */
-img {
+#searchImages {
   border-radius: 5px;
   margin-left: 6px;
   border: 1px solid white;
@@ -230,7 +230,7 @@ justify-content: center;
 }
 
 
-.image {
+#myPhotos {
     max-width: 100%;
     max-height: 100%;
   
@@ -242,7 +242,7 @@ justify-content: center;
 
 @media (min-width: 800px)
 {
-    .image {
+    #myPhotos {
         width: 200%;
     }
     .square {
